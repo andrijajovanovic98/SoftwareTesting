@@ -8,7 +8,7 @@ TEST(CalculatorTest, AddFunction) {
     EXPECT_EQ(10, Calculator::add(7,3));
 }
 
-TEST(CalculatorTest, substractFunction) {
+TEST(CalculatorTest, SubstractFunction) {
     EXPECT_EQ(-1, Calculator::substract(2,3));
     EXPECT_EQ(-2, Calculator::substract(2,4));
     EXPECT_EQ(4, Calculator::substract(7,3));
