@@ -1,0 +1,1 @@
+g++ -std=c++11 -isystem /path/to/googletest/include -pthread main.cpp -L/path/to/googletest/lib -lgtest -lgtest_main -o test_output
