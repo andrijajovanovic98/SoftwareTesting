@@ -14,6 +14,13 @@ TEST(CalculatorTest, SubstractFunction) {
     EXPECT_EQ(4, Calculator::substract(7,3));
 }
 
+TEST(CalculatorTest, MultiplyFunction) {
+    EXPECT_EQ(6, Calculator::multiply(2,3));
+    EXPECT_EQ(8, Calculator::multiply(2,4));
+    EXPECT_EQ(21, Calculator::multiply(7,3 + 1));
+}
+
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
