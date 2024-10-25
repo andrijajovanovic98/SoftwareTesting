@@ -17,7 +17,7 @@ TEST(CalculatorTest, SubstractFunction) {
 TEST(CalculatorTest, MultiplyFunction) {
     EXPECT_EQ(6, Calculator::multiply(2,3));
     EXPECT_EQ(8, Calculator::multiply(2,4));
-    EXPECT_EQ(21, Calculator::multiply(7,3 + 1));
+    EXPECT_EQ(21, Calculator::multiply(7,3));
 }
 
 
