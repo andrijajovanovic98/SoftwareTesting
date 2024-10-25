@@ -1,0 +1,37 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # Check out the repository's code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Set up CMake (you can skip this if you're not using CMake)
+    - name: Set up CMake
+      uses: jwlawson/actions-setup-cmake@v1
+
+    # Install necessary dependencies, such as build tools and libraries
+    - name: Install dependencies
+      run: sudo apt-get install cmake g++ -y
+
+    # Build the project
+    - name: Build project
+      run: |
+        cmake .
+        make
+
+    # Run the tests
+    - name: Run Google Tests
+      run: ./tests
