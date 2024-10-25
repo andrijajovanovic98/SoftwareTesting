@@ -12,8 +12,8 @@ set(BUILD_GTEST ON)
 FetchContent_MakeAvailable(googletest)
 
 # Add your source files
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} ./main.cpp)
 
 # Add the test executable
-add_executable(tests tests/test_main.cpp)
+add_executable(tests ./test_main.cpp)
 target_link_libraries(tests gtest gtest_main)
