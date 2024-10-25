@@ -11,8 +11,12 @@ set(BUILD_GMOCK OFF)
 set(BUILD_GTEST ON)
 FetchContent_MakeAvailable(googletest)
 
-# Add your main source file
-add_executable(${PROJECT_NAME} main.cpp)
+# Add your main source file (for the main program)
+add_executable(main_executable main.cpp)
 
-# Link the test libraries
-target_link_libraries(${PROJECT_NAME} gtest gtest_main)
+# Link the test libraries to the main executable (if your main.cpp includes tests)
+target_link_libraries(main_executable gtest gtest_main)
+
+# Alternatively, if you want a separate test executable
+add_executable(tests main.cpp)  # Használhatod a `tests` nevet a teszt futtatható fájlhoz is
+target_link_libraries(tests gtest gtest_main)
