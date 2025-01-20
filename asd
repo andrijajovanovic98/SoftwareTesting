@@ -21,15 +21,14 @@ jobs:
     - name: Install Docker Compose
       run: sudo apt-get install -y docker-compose
 
-    - name: Export GitHub Secrets as Environment Variables
-      env:
-        DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-        DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        OTHER_SECRET: ${{ secrets.OTHER_SECRET }}
+    - name: Create .env file from Secrets
       run: |
-        echo "DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}" >> .env
-        echo "DATABASE_URL=${DATABASE_URL}" >> .env
-        echo "OTHER_SECRET=${OTHER_SECRET}" >> .env
+        echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
+        echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
+        echo "POSTGRES_DB=${{ secrets.POSTGRES_DB }}" >> .env
+        echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env
+        echo "INTRA42_CLIENT_ID=${{ secrets.INTRA42_CLIENT_ID }}" >> .env
+        echo "INTRA42_SECRET=${{ secrets.INTRA42_SECRET }}" >> .env
 
     - name: Build and Run Docker Compose
       run: |
